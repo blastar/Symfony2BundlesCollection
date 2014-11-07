@@ -1,0 +1,22 @@
+parameters:
+    admin.twig.class: Blastar\AdminUserBundle\EventListener\TwigListener
+    
+    
+services:
+    security.access.security_voter:
+        class:      Blastar\AdminUserBundle\Voter\SecurityVoter
+        public:     false
+        tags:
+           - { name: security.voter }
+
+    admin.twig_listener: 
+        class:  '%admin.twig.class%'
+        calls:
+            - [setContainer, ['@service_container']]
+        tags:
+            - { name: kernel.event_subscriber }
+            
+            
+            
+            
+            

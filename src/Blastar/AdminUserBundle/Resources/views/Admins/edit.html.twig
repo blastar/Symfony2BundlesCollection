@@ -1,0 +1,37 @@
+<a href="{{ path('blastar_admin_logout') }}">logout</a> | 
+<a href="{{ path('blastar_admin_user_homepage') }}">dashboard</a>
+<hr>
+edit admin <br/>
+{{ form_start(form) }}
+<table>
+	<tr>
+		<td>{{ form_label(form.username) }}</td>
+		<td>{{ form_widget(form.username) }}</td>
+		<td>{{ form_errors(form.username) }}</td>
+	</tr>
+	<tr>
+		<td>{{ form_label(form.email) }}</td>
+		<td>{{ form_widget(form.email) }}</td>
+		<td>{{ form_errors(form.email) }}</td>
+	</tr>
+	<tr>
+		<td>{{ form_label(form.passwordnew) }}</td>
+		<td>{{ form_widget(form.passwordnew) }}</td>
+		<td>{{ form_errors(form.passwordnew) }}</td>
+	</tr>
+	<tr>
+		<td>{{ form_label(form.isActive) }}</td>
+		<td>{{ form_widget(form.isActive) }}</td>
+		<td>{{ form_errors(form.isActive) }}</td>
+	</tr>
+	<tr>
+		<td>{{ form_label(form.acl) }}</td>
+		<td>{{ form_widget(form.acl) }}</td>
+		<td>{{ form_errors(form.acl) }}</td>
+	</tr>
+</table>
+{{ form_widget(form.save, { 'attr': {'class': 'btn'} }) }}
+{{ form_widget(form._token) }}
+{{ form_end(form, {'render_rest': false}) }}
+
+

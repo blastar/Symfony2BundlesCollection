@@ -1,0 +1,58 @@
+# you can read more about security in the related section of the documentation
+# http://symfony.com/doc/current/book/security.html
+security:
+    # http://symfony.com/doc/current/book/security.html#encoding-the-user-s-password
+    encoders:
+        Blastar\AdminUserBundle\Entity\User:
+            algorithm: sha512
+            encode_as_base64: true
+            iterations: 3
+        Blastar\FrontUserBundle\Entity\User:
+            algorithm: sha512
+
+    # http://symfony.com/doc/current/book/security.html#hierarchical-roles
+    role_hierarchy:
+        ROLE_ADMIN:       ROLE_USER
+        ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
+
+    # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
+    providers:
+        administrators:
+            entity: { class: BlastarAdminUserBundle:User, property: username }
+        users:
+            entity: { class: BlastarFrontUserBundle:User, property: username }
+
+    # the main part of the security, where you can set up firewalls
+    # for specific sections of your app
+    firewalls:
+        admin_area:
+            pattern:    ^/admin
+            anonymous: ~
+            provider: administrators
+            logout:
+                path:   blastar_admin_logout
+                target: /admin
+            form_login:
+                login_path: blastar_admin_login
+                check_path: blastar_admin_login_check
+        profile_area:
+            pattern:    ^/profile
+            anonymous: ~
+            provider: users
+            logout:
+                path:   blastar_front_logout
+                target: /profile
+            form_login:
+                login_path: blastar_front_login
+                check_path: blastar_front_login_check            
+
+
+    # with these settings you can restrict or allow access for different parts
+    # of your application based on roles, ip, host or methods
+    # http://symfony.com/doc/current/book/security.html#security-book-access-control-matching-options
+    access_control:
+        #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
+        - { path: ^/admin/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/profile/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/profile, roles: ROLE_USER }

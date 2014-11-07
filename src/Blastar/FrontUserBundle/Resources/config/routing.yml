@@ -1,0 +1,12 @@
+blastar_front_user_homepage:
+    path:     /profile
+    defaults: { _controller: BlastarFrontUserBundle:Default:index }
+blastar_front_login:
+    path:     /profile/login
+    defaults: { _controller: BlastarFrontUserBundle:Default:login }
+blastar_front_login_check:
+    path: /profile/login_check
+blastar_front_logout:
+    path: /profile/logout
+    
+    

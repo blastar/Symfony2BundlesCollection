@@ -1,0 +1,16 @@
+{% if error %}
+    <div>{{ error.message }}</div>
+{% endif %}
+<h2>admin login</h2>
+<form action="{{ path('blastar_admin_login_check') }}" method="post">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="_username" value="{{ last_username }}" />
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="_password" />
+
+        <input type="hidden" name="_target_path" value="/admin" />
+
+
+    <button type="submit">login</button>
+</form>

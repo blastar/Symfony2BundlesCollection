@@ -1,0 +1,8 @@
+blastar_front_user:
+    resource: "@BlastarFrontUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+blastar_admin_user:
+    resource: "@BlastarAdminUserBundle/Resources/config/routing.yml"
+    prefix:   /
+

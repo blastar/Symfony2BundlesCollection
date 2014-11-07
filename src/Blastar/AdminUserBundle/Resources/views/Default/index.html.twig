@@ -1,0 +1,8 @@
+Hello admin {{ user.username }}!
+<hr>
+<a href="{{ path('blastar_admin_logout') }}">logout</a> | 
+<a href="{{ path('blastar_admin_user_homepage') }}">dashboard</a> | 
+{% for acl in user.acl %}
+<a href="{{ path(acl.route) }}">{{ acl.name }}</a>
+{% endfor %}
+

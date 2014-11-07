@@ -1,0 +1,21 @@
+Blastar\AdminUserBundle\Entity\Role:
+    type: entity
+    table: admin_role
+    repositoryClass: Blastar\AdminUserBundle\Entity\RoleRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        ident:
+            type: string
+            length: 255
+        route:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }

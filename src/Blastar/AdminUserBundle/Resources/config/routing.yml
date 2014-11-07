@@ -1,0 +1,34 @@
+blastar_admin_user_homepage:
+    path:     /admin
+    defaults: { _controller: BlastarAdminUserBundle:Default:index }
+blastar_admin_login:
+    path:     /admin/login
+    defaults: { _controller: BlastarAdminUserBundle:Default:login }
+blastar_admin_login_check:
+    path: /admin/login_check
+blastar_admin_logout:
+    path: /admin/logout
+# user manager    
+blastar_admin_user_manager_list:
+    path:     /admin/admins
+    defaults: { _controller: BlastarAdminUserBundle:Admins:index }
+blastar_admin_user_manager_edit:
+    path:     /admin/admins/edit/{id}
+    defaults: { _controller: BlastarAdminUserBundle:Admins:edit }
+blastar_admin_user_manager_save:
+    path:     /admin/admins/save/{id}
+    defaults: { _controller: BlastarAdminUserBundle:Admins:save }
+    
+# categories
+blastar_admin_categories_list:
+    path:     /admin/categories
+    defaults: { _controller: BlastarAdminUserBundle:Admins:index }
+
+
+
+
+# cms
+blastar_admin_cms_list:
+    path:     /admin/cms
+    defaults: { _controller: BlastarAdminUserBundle:Admins:index }
+    

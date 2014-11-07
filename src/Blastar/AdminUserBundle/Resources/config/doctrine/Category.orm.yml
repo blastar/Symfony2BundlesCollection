@@ -1,0 +1,34 @@
+Blastar\AdminUserBundle\Entity\Category:
+    type: entity
+    table: category
+    repositoryClass: Blastar\AdminUserBundle\Entity\CategoryRepository
+    gedmo:
+        tree:
+            type: nested    
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        lft:
+            type: integer
+            gedmo:
+                - treeLeft            
+        level:
+            type: integer
+            gedmo:
+                - treeLevel            
+        rgt:
+            type: integer
+            gedmo:
+                - treeRight            
+        root:
+            type: integer
+            gedmo:
+                - treeRoot            
+    lifecycleCallbacks: {  }
