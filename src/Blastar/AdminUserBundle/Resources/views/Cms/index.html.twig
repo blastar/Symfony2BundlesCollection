@@ -1,0 +1,13 @@
+<p>categories</p>
+<table>
+	{% for item in list %}
+		<tr>
+			<td>{{ item.username }}</td>
+			<td>{{ item.email }}</td>
+			<td><a href="{{ path('blastar_admin_user_manager_edit', {'id': item.id}) }}">edit</a></td>
+		</tr>
+		
+	{% endfor %}
+</table>
+
+

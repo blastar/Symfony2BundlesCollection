@@ -164,4 +164,77 @@ class Category
     {
         return $this->root;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $children;
+
+    /**
+     * @var \Blastar\AdminUserBundle\Entity\Category
+     */
+    private $parent;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->children = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add children
+     *
+     * @param \Blastar\AdminUserBundle\Entity\Category $children
+     * @return Category
+     */
+    public function addChild(\Blastar\AdminUserBundle\Entity\Category $children)
+    {
+        $this->children[] = $children;
+
+        return $this;
+    }
+
+    /**
+     * Remove children
+     *
+     * @param \Blastar\AdminUserBundle\Entity\Category $children
+     */
+    public function removeChild(\Blastar\AdminUserBundle\Entity\Category $children)
+    {
+        $this->children->removeElement($children);
+    }
+
+    /**
+     * Get children
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getChildren()
+    {
+        return $this->children;
+    }
+
+    /**
+     * Set parent
+     *
+     * @param \Blastar\AdminUserBundle\Entity\Category $parent
+     * @return Category
+     */
+    public function setParent(\Blastar\AdminUserBundle\Entity\Category $parent = null)
+    {
+        $this->parent = $parent;
+
+        return $this;
+    }
+
+    /**
+     * Get parent
+     *
+     * @return \Blastar\AdminUserBundle\Entity\Category 
+     */
+    public function getParent()
+    {
+        return $this->parent;
+    }
 }

@@ -22,7 +22,7 @@ blastar_admin_user_manager_save:
 # categories
 blastar_admin_categories_list:
     path:     /admin/categories
-    defaults: { _controller: BlastarAdminUserBundle:Admins:index }
+    defaults: { _controller: BlastarAdminUserBundle:Cms:index }
 
 
 
@@ -30,5 +30,5 @@ blastar_admin_categories_list:
 # cms
 blastar_admin_cms_list:
     path:     /admin/cms
-    defaults: { _controller: BlastarAdminUserBundle:Admins:index }
+    defaults: { _controller: BlastarAdminUserBundle:Cms:index }
     

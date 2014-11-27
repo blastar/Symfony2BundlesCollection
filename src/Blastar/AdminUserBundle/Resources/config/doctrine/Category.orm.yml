@@ -32,3 +32,19 @@ Blastar\AdminUserBundle\Entity\Category:
             gedmo:
                 - treeRoot            
     lifecycleCallbacks: {  }
+    manyToOne:
+        parent:
+            targetEntity: Blastar\AdminUserBundle\Entity\Category
+            inversedBy: children
+            joinColumn:
+                name: parent_id
+                referencedColumnName: id
+                onDelete: CASCADE
+            gedmo:
+                - treeParent
+    oneToMany:
+        children:
+            targetEntity: Blastar\AdminUserBundle\Entity\Category
+            mappedBy: parent
+            orderBy:
+                lft: ASC
