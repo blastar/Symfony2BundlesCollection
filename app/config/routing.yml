@@ -1,3 +1,11 @@
+blastar_admin_cms:
+    resource: "@BlastarAdminCmsBundle/Resources/config/routing.yml"
+    prefix:   /admin/cms
+
+blastar_admin_category:
+    resource: "@BlastarAdminCategoryBundle/Resources/config/routing.yml"
+    prefix:   /admin/category
+
 blastar_front_user:
     resource: "@BlastarFrontUserBundle/Resources/config/routing.yml"
     prefix:   /

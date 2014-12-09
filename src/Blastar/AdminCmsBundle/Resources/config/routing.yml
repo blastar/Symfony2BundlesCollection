@@ -1,0 +1,7 @@
+blastar_admin_cms_list:
+    path:     /
+    defaults: { _controller: BlastarAdminCmsBundle:Cms:index }
+    
+    
+    
+    

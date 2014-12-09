@@ -1,6 +1,6 @@
 <?php
 
-namespace Blastar\AdminUserBundle\Entity;
+namespace Blastar\AdminCategoryBundle\Entity;
 
 use Gedmo\Tree\Entity\Repository\NestedTreeRepository;
 

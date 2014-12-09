@@ -1,7 +1,7 @@
-Blastar\AdminUserBundle\Entity\Category:
+Blastar\AdminCategoryBundle\Entity\Category:
     type: entity
     table: category
-    repositoryClass: Blastar\AdminUserBundle\Entity\CategoryRepository
+    repositoryClass: Blastar\AdminCategoryBundle\Entity\CategoryRepository
     gedmo:
         tree:
             type: nested    
@@ -34,7 +34,7 @@ Blastar\AdminUserBundle\Entity\Category:
     lifecycleCallbacks: {  }
     manyToOne:
         parent:
-            targetEntity: Blastar\AdminUserBundle\Entity\Category
+            targetEntity: Blastar\AdminCategoryBundle\Entity\Category
             inversedBy: children
             joinColumn:
                 name: parent_id
@@ -44,7 +44,7 @@ Blastar\AdminUserBundle\Entity\Category:
                 - treeParent
     oneToMany:
         children:
-            targetEntity: Blastar\AdminUserBundle\Entity\Category
+            targetEntity: Blastar\AdminCategoryBundle\Entity\Category
             mappedBy: parent
             orderBy:
                 lft: ASC

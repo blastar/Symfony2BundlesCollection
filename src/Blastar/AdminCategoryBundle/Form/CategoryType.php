@@ -1,6 +1,6 @@
 <?php
 
-namespace Blastar\AdminUserBundle\Form;
+namespace Blastar\AdminCategoryBundle\Form;
 
 use Doctrine\DBAL\Query\QueryBuilder;
 use Symfony\Component\Form\FormEvent;
@@ -33,7 +33,7 @@ class CategoryType extends AbstractType
 	public function setDefaultOptions(OptionsResolverInterface $resolver)
 	{
 		$resolver->setDefaults(array(
-			'data_class' => 'Blastar\AdminUserBundle\Entity\Category',
+			'data_class' => 'Blastar\AdminCategoryBundle\Entity\Category',
 		))
 		;
 	}

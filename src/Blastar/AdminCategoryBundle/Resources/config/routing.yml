@@ -1,0 +1,15 @@
+blastar_admin_category_list:
+    path:     /
+    defaults: { _controller: BlastarAdminCategoryBundle:Category:index }
+
+blastar_admin_category_edit:
+    path:     /edit/{id}/{parentid}
+    defaults: { _controller: BlastarAdminCategoryBundle:Category:edit, parentid: 0 }
+
+blastar_admin_category_save:
+    path:     /save/{id}/{parentid}
+    defaults: { _controller: BlastarAdminCategoryBundle:Category:save, parentid: 0 }
+
+blastar_admin_category_remove:
+    path:     /remove/{id}
+    defaults: { _controller: BlastarAdminCategoryBundle:Category:remove }

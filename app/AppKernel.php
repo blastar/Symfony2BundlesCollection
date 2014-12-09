@@ -19,6 +19,8 @@ class AppKernel extends Kernel
             new Blastar\AdminUserBundle\BlastarAdminUserBundle(),
             new Blastar\FrontUserBundle\BlastarFrontUserBundle(),
 			new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+            new Blastar\AdminCategoryBundle\BlastarAdminCategoryBundle(),
+            new Blastar\AdminCmsBundle\BlastarAdminCmsBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

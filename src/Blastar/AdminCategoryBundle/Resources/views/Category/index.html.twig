@@ -1,0 +1,72 @@
+<a href="{{ path('blastar_admin_logout') }}">logout</a> | 
+<a href="{{ path('blastar_admin_user_homepage') }}">dashboard</a>
+<hr>
+<link rel="stylesheet" href="/jstree/themes/default/style.min.css" />
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="/jstree/jstree.min.js"></script>
+<p>categories</p>
+
+{% macro recursive(tree) %}
+	<ul>
+    {% for i in tree %}
+		<li data-itemid="{{i.id}}" data-edithref="{{ path('blastar_admin_category_edit', {'id': i.id}) }}" data-removehref="{{ path('blastar_admin_category_remove', {'id': i.id}) }}"> 
+			{{i.name}}
+			{% if i.__children is defined and i.__children|length > 0 %}
+				{{ _self.recursive(i.__children) }}
+			{% endif %}
+		</li>
+    {% endfor %}
+	</ul>
+{% endmacro %}
+
+
+<div id="jstree_categories">
+{{ _self.recursive(arrayTree) }}
+</div>
+
+<script>
+	var selectedNodeId = '';
+	$(function () {
+		$('#jstree_categories').jstree({
+			"core": {
+				"check_callback": true
+			},
+			"plugins": ["contextmenu", "state"],
+			"state" : { "key" : "admin_category" },
+			"contextmenu": {
+				"items": function ($node) {
+					var tree = $("#jstree_categories").jstree(true);
+					return {
+						"Create": {
+							"separator_before": false,
+							"separator_after": false,
+							"label": "Create",
+							"action": function (obj) {
+								document.location.href = '{{ path('blastar_admin_category_edit', {'id': 0}) }}/'+$('#' + selectedNodeId).attr('data-itemid');
+							}
+						},
+						"Edit": {
+							"separator_before": false,
+							"separator_after": false,
+							"label": "Edit",
+							"action": function (obj) {
+								document.location.href = $('#' + selectedNodeId).attr('data-edithref');
+							}
+						},
+						"Remove": {
+							"separator_before": false,
+							"separator_after": false,
+							"label": "Remove",
+							"action": function (obj) {
+								document.location.href = $('#' + selectedNodeId).attr('data-removehref');
+							}
+						}
+					};
+				}
+			}
+		});
+	});
+	$('#jstree_categories').on("changed.jstree", function (e, data) {
+		selectedNodeId = data.selected;
+	});
+</script>
