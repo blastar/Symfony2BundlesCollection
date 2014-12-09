@@ -31,4 +31,22 @@ blastar_admin_categories_list:
 blastar_admin_cms_list:
     path:     /admin/cms
     defaults: { _controller: BlastarAdminUserBundle:Cms:index }
+
+blastar_admin_cms_edit:
+    path:     /admin/cms/edit/{id}/{parentid}
+    defaults: { _controller: BlastarAdminUserBundle:Cms:edit, parentid: 0 }
+
+blastar_admin_cms_save:
+    path:     /admin/cms/save/{id}/{parentid}
+    defaults: { _controller: BlastarAdminUserBundle:Cms:save, parentid: 0 }
+
+blastar_admin_cms_remove:
+    path:     /admin/cms/remove/{id}
+    defaults: { _controller: BlastarAdminUserBundle:Cms:remove }
+
+    
+    
+    
+    
+    
     

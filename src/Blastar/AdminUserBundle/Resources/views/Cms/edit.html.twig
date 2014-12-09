@@ -1,0 +1,17 @@
+<a href="{{ path('blastar_admin_logout') }}">logout</a> | 
+<a href="{{ path('blastar_admin_user_homepage') }}">dashboard</a>
+<hr>
+edit category <br/>
+{{ form_start(form) }}
+<table>
+	<tr>
+		<td>{{ form_label(form.name) }}</td>
+		<td>{{ form_widget(form.name) }}</td>
+		<td>{{ form_errors(form.name) }}</td>
+	</tr>
+</table>
+{{ form_widget(form.save, { 'attr': {'class': 'btn'} }) }}
+{{ form_widget(form._token) }}
+{{ form_end(form, {'render_rest': false}) }}
+
+
