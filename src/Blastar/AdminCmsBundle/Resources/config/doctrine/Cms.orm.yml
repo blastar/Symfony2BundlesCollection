@@ -1,0 +1,29 @@
+Blastar\AdminCmsBundle\Entity\Cms:
+    type: entity
+    table: null
+    repositoryClass: Blastar\AdminCmsBundle\Entity\CmsRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        content:
+            type: text
+        isEnabled:
+            type: boolean
+            column: is_enabled
+        createdAt:
+            type: datetime
+            column: created_at
+        modifiedAt:
+            type: datetime
+            column: modified_at
+        url:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }
