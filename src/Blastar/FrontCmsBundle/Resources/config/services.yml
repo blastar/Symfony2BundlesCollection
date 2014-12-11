@@ -1,0 +1,4 @@
+services:
+#    blastar_front_cms.example:
+#        class: Blastar\FrontCmsBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

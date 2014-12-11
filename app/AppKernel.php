@@ -21,6 +21,7 @@ class AppKernel extends Kernel
 			new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new Blastar\AdminCategoryBundle\BlastarAdminCategoryBundle(),
             new Blastar\AdminCmsBundle\BlastarAdminCmsBundle(),
+            new Blastar\FrontCmsBundle\BlastarFrontCmsBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

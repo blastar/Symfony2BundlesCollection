@@ -1,0 +1,3 @@
+blastar_front_cms_page:
+    path:     /{link}
+    defaults: { _controller: BlastarFrontCmsBundle:Page:index }
