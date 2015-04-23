@@ -1,6 +1,6 @@
 <?php
 
-namespace Blastar\AdminUserBundle\Form;
+namespace Blastar\AdminNewsBundle\Form;
 
 use Doctrine\DBAL\Query\QueryBuilder;
 use Symfony\Component\Form\FormEvent;
@@ -9,7 +9,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class AdminType extends AbstractType
+class NewsType extends AbstractType
 {
 
 	/**
@@ -19,32 +19,26 @@ class AdminType extends AbstractType
 	public function buildForm(FormBuilderInterface $builder, array $options)
 	{
 		$builder
-				->add('username', 'text', array(
+				->add('title', 'text', array(
 					'required' => true,
-					'label' => 'username'
-				))
-				->add('email', 'text', array(
-					'required' => true,
-					'label' => 'email'
-				))
-				->add('passwordnew', 'text', array(
+					'label' => 'title'
+				))			
+				->add('header', 'textarea', array(
 					'required' => false,
-					'mapped' => false,
-					'label' => 'password'
-				))
-				->add('isActive', 'checkbox', array(
-					'label' => 'is active',
-					'value' => 1,
+					'label' => 'header'
+				))			
+				->add('content', 'textarea', array(
 					'required' => false,
-				))
-				->add('acl', 'entity', array(
+					'label' => 'content'
+				))			
+				->add('url', 'text', array(
 					'required' => true,
-					'multiple' => true,
-					'expanded' => false,
-					'property' => 'name',
-					'class' => 'Blastar\AdminUserBundle\Entity\Role',
-					'label' => 'roles'
-				))				
+					'label' => 'url'
+				))			
+				->add('is_enabled', 'checkbox', array(
+					'required' => false,
+					'label' => 'enabled'
+				))			
 				->add('save', 'submit', array('label' => 'save'))
 		;
 	}
@@ -55,7 +49,7 @@ class AdminType extends AbstractType
 	public function setDefaultOptions(OptionsResolverInterface $resolver)
 	{
 		$resolver->setDefaults(array(
-			'data_class' => 'Blastar\AdminUserBundle\Entity\User',
+			'data_class' => 'Blastar\AdminNewsBundle\Entity\News',
 		))
 		;
 	}
@@ -65,7 +59,7 @@ class AdminType extends AbstractType
 	 */
 	public function getName()
 	{
-		return 'admin_user_edit_form';
+		return 'admin_news_edit_form';
 	}
 
 }

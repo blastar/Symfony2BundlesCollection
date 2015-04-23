@@ -50,6 +50,7 @@ class CmsController extends Controller
 		if ($id == 0) {
 			$entity = new Cms();
 			$entity->setCreatedAt(new \DateTime());
+			$em->persist($entity);
 		} else {
 			$entity = $em->getRepository('BlastarAdminCmsBundle:Cms')->find($id);
 		}
@@ -64,7 +65,6 @@ class CmsController extends Controller
 
 		if ($form->isValid()) {
 			$entity->setModifiedAt(new \DateTime());
-			$em->persist($entity);
 			$em->flush();
 			return new RedirectResponse($this->get('router')->generate('blastar_admin_cms_edit', array('id' => $entity->getId())));
 		}
@@ -73,5 +73,18 @@ class CmsController extends Controller
 		}
 
 		return $this->render('BlastarAdminCmsBundle:Cms:edit.html.twig', array('entity' => $entity, 'form' => $form->createView()));
-	}	
+	}
+
+	public function removeAction($id)
+	{
+
+		$em = $this->getDoctrine()->getManager();
+		$entity = $em->getRepository('BlastarAdminCmsBundle:Cms')->find($id);
+
+		$em->remove($entity);
+		$em->flush();
+
+		return $this->redirect($this->generateUrl('blastar_admin_cms_list'));
+	}
+
 }

@@ -9,8 +9,9 @@ blastar_admin_user_manager_edit:
 blastar_admin_user_manager_save:
     path:     /save/{id}
     defaults: { _controller: BlastarAdminUserBundle:Admins:save }
-
-
+blastar_admin_user_manager_remove:
+    path:     /remove/{id}
+    defaults: { _controller: BlastarAdminUserBundle:Admins:remove } 
     
     
     

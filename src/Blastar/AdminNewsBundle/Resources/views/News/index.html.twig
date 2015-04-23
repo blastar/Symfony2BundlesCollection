@@ -1,21 +1,21 @@
 <a href="{{ path('blastar_admin_logout') }}">logout</a> | 
 <a href="{{ path('blastar_admin_user_homepage') }}">dashboard</a>
 <hr>
-cms   <a href="{{ path('blastar_admin_cms_edit', {'id': 0}) }}">create</a><br/>
+news   <a href="{{ path('blastar_admin_news_edit', {'id': 0}) }}">create</a><br/>
 <table>
 	<tr>
-		<td>Name</td>
+		<td>Title</td>
 		<td>Created</td>
 		<td>Modified</td>
 		<td></td>
 	</tr>
 	{% for item in list %}
 		<tr>
-			<td>{{ item.name }}</td>
+			<td>{{ item.title }}</td>
 			<td>{{ item.createdAt|date('Y-m-d H:i:s') }}</td>
 			<td>{{ item.modifiedAt|date('Y-m-d H:i:s') }}</td>
-			<td><a href="{{ path('blastar_admin_cms_edit', {'id': item.id}) }}">edit</a></td>
-			<td><a href="{{ path('blastar_admin_cms_remove', {'id': item.id}) }}">remove</a></td>
+			<td><a href="{{ path('blastar_admin_news_edit', {'id': item.id}) }}">edit</a></td>
+			<td><a href="{{ path('blastar_admin_news_remove', {'id': item.id}) }}">remove</a></td>
 		</tr>
 		
 	{% endfor %}

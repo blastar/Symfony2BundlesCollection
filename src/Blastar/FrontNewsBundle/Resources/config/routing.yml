@@ -1,0 +1,3 @@
+blastar_front_news_page:
+    path:     /{link}
+    defaults: { _controller: BlastarFrontNewsBundle:News:index }

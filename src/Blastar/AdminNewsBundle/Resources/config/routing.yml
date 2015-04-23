@@ -1,0 +1,17 @@
+blastar_admin_news_list:
+    path:     /
+    defaults: { _controller: BlastarAdminNewsBundle:News:index }
+    
+blastar_admin_news_edit:
+    path:     /edit/{id}
+    defaults: { _controller: BlastarAdminNewsBundle:News:edit }
+
+blastar_admin_news_save:
+    path:     /save/{id}
+    defaults: { _controller: BlastarAdminNewsBundle:News:save }
+
+blastar_admin_news_remove:
+    path:     /remove/{id}
+    defaults: { _controller: BlastarAdminNewsBundle:News:remove }    
+    
+    

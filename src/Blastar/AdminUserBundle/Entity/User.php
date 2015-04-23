@@ -193,7 +193,7 @@ class User implements UserInterface, \Serializable
 	 */
 	public function __construct()
 	{
-		$this->acl = new \Doctrine\Common\Collections\Collection();
+		$this->acl = new \Doctrine\Common\Collections\ArrayCollection();
 	}
 
 	/**

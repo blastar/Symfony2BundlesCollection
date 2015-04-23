@@ -50,6 +50,7 @@ class CategoryController extends Controller
 		$em = $this->getDoctrine()->getManager();
 		if ($id == 0) {
 			$entity = new Category();
+			$em->persist($entity);
 		} else {
 			$entity = $em->getRepository('BlastarAdminCategoryBundle:Category')->find($id);
 		}
@@ -68,7 +69,7 @@ class CategoryController extends Controller
 				$entity->setParent($parent);
 			}
 
-			$em->persist($entity);
+			
 			$em->flush();
 			return new RedirectResponse($this->get('router')->generate('blastar_admin_category_list', array()));
 		}

@@ -1,0 +1,4 @@
+services:
+#    blastar_admin_news.example:
+#        class: Blastar\AdminNewsBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

@@ -49,6 +49,7 @@ class AdminsController extends Controller
 		$em = $this->getDoctrine()->getManager();
 		if ($id == 0) {
 			$entity = new User();
+			$em->persist($entity);
 		} else {
 			$entity = $em->getRepository('BlastarAdminUserBundle:User')->find($id);
 		}
@@ -66,20 +67,31 @@ class AdminsController extends Controller
 			if (isset($formData['passwordnew']) && trim($formData['passwordnew']) != '') {
 				$encoderFactory = $this->get('security.encoder_factory');
 				$encoder = $encoderFactory->getEncoder($entity);
-				$entity->setSalt(uniqid().uniqid());
+				$entity->setSalt(uniqid() . uniqid());
 				$password = $encoder->encodePassword($formData['passwordnew'], $entity->getSalt());
 				$entity->setPassword($password);
 			}
 
-			$em->persist($entity);
 			$em->flush();
-			return new RedirectResponse($this->get('router')->generate('blastar_admin_user_manager_edit', array('id' => $id)));
+			return new RedirectResponse($this->get('router')->generate('blastar_admin_user_manager_edit', array('id' => $entity->getId())));
 		}
 		foreach ($form->getErrors() as $key => $error) {
 			$errors[] = $error->getMessage();
 		}
 
 		return $this->render('BlastarAdminUserBundle:Admins:edit.html.twig', array('entity' => $entity, 'form' => $form->createView()));
+	}
+
+	public function removeAction($id)
+	{
+
+		$em = $this->getDoctrine()->getManager();
+		$entity = $em->getRepository('BlastarAdminUserBundle:User')->find($id);
+
+		$em->remove($entity);
+		$em->flush();
+
+		return $this->redirect($this->generateUrl('blastar_admin_user_manager_list'));
 	}
 
 }

@@ -24,7 +24,7 @@ class CmsType extends AbstractType
 					'label' => 'name'
 				))			
 				->add('content', 'textarea', array(
-					'required' => true,
+					'required' => false,
 					'label' => 'content'
 				))			
 				->add('url', 'text', array(

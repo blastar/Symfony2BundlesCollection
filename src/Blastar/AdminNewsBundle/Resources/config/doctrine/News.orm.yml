@@ -1,7 +1,7 @@
-Blastar\AdminCmsBundle\Entity\Cms:
+Blastar\AdminNewsBundle\Entity\News:
     type: entity
     table: null
-    repositoryClass: Blastar\AdminCmsBundle\Entity\CmsRepository
+    repositoryClass: Blastar\AdminNewsBundle\Entity\NewsRepository
     id:
         id:
             type: integer
@@ -9,22 +9,25 @@ Blastar\AdminCmsBundle\Entity\Cms:
             generator:
                 strategy: AUTO
     fields:
-        name:
+        title:
             type: string
             length: 255
+        header:
+            type: text
+            nullable: true
         content:
             type: text
             nullable: true
-        isEnabled:
-            type: boolean
-            column: is_enabled
         createdAt:
             type: datetime
             column: created_at
         modifiedAt:
             type: datetime
             column: modified_at
+        isEnabled:
+            type: boolean
+            column: is_enabled
         url:
             type: string
-            length: 255
+            length: 255            
     lifecycleCallbacks: {  }

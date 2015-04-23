@@ -1,13 +1,18 @@
 <a href="{{ path('blastar_admin_logout') }}">logout</a> | 
 <a href="{{ path('blastar_admin_user_homepage') }}">dashboard</a>
 <hr>
-edit cms <br/>
+edit news <br/>
 {{ form_start(form) }}
 <table>
 	<tr>
-		<td>{{ form_label(form.name) }}</td>
-		<td>{{ form_widget(form.name) }}</td>
-		<td>{{ form_errors(form.name) }}</td>
+		<td>{{ form_label(form.title) }}</td>
+		<td>{{ form_widget(form.title) }}</td>
+		<td>{{ form_errors(form.title) }}</td>
+	</tr>
+	<tr>
+		<td>{{ form_label(form.header) }}</td>
+		<td>{{ form_widget(form.header) }}</td>
+		<td>{{ form_errors(form.header) }}</td>
 	</tr>
 	<tr>
 		<td>{{ form_label(form.content) }}</td>
@@ -27,7 +32,7 @@ edit cms <br/>
 {{ form_widget(form.save, { 'attr': {'class': 'btn'} }) }}
 {{ form_widget(form._token) }}
 {{ form_end(form, {'render_rest': false}) }}
-<a href="{{ path('blastar_admin_cms_list') }}">back to list</a>
+<a href="{{ path('blastar_admin_news_list') }}">back to list</a>
 
 <script src="/tinymce/tinymce.min.js"></script>
 <script>tinymce.init({selector:'textarea'});</script>

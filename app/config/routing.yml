@@ -12,6 +12,10 @@ blastar_admin_user:
     resource: "@BlastarAdminUserBundle/Resources/config/routing.yml"
     prefix:   /admin/admins
 
+blastar_admin_news:
+    resource: "@BlastarAdminNewsBundle/Resources/config/routing.yml"
+    prefix:   /admin/news
+    
 blastar_admin_user_homepage:
     path:     /admin
     defaults: { _controller: BlastarAdminUserBundle:Default:index }
@@ -35,5 +39,7 @@ blastar_front_cms:
     resource: "@BlastarFrontCmsBundle/Resources/config/routing.yml"
     prefix:   /page
     
-    
+blastar_front_news:
+    resource: "@BlastarFrontNewsBundle/Resources/config/routing.yml"
+    prefix:   /news   
     

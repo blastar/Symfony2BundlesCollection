@@ -1,10 +1,14 @@
-
+<a href="{{ path('blastar_admin_logout') }}">logout</a> | 
+<a href="{{ path('blastar_admin_user_homepage') }}">dashboard</a>
+<hr>
+admin users   <a href="{{ path('blastar_admin_user_manager_edit', {'id': 0}) }}">create</a><br/>
 <table>
 	{% for item in list %}
 		<tr>
 			<td>{{ item.username }}</td>
 			<td>{{ item.email }}</td>
 			<td><a href="{{ path('blastar_admin_user_manager_edit', {'id': item.id}) }}">edit</a></td>
+			<td><a href="{{ path('blastar_admin_user_manager_remove', {'id': item.id}) }}">remove</a></td>
 		</tr>
 		
 	{% endfor %}
