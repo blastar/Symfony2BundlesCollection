@@ -1,0 +1,32 @@
+Admin\ProductBundle\Entity\ProductPrice:
+    type: entity
+    table: product_price
+    repositoryClass: Admin\ProductBundle\Entity\ProductPriceRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        price:
+            type: integer
+        priceNet:
+            type: integer
+            column: price_net
+    lifecycleCallbacks: {  }
+    manyToOne:
+        product:
+            targetEntity: Admin\ProductBundle\Entity\Product
+            inversedBy: prices
+            joinColumn:
+                name: product_id
+                referencedColumnName: id  
+                onDelete: "cascade"
+        warehouse:
+            targetEntity: Admin\WarehouseBundle\Entity\Warehouse
+            joinColumn:
+                name: warehouse_id
+                referencedColumnName: id   
+                onDelete: "cascade"                
+                

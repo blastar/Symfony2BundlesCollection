@@ -1,0 +1,15 @@
+blastar_admin_product_list:
+    path:     /
+    defaults: { _controller: AdminProductBundle:Product:index }
+    
+blastar_admin_product_edit:
+    path:     /edit/{id}
+    defaults: { _controller: AdminProductBundle:Product:edit }
+
+blastar_admin_product_save:
+    path:     /save/{id}
+    defaults: { _controller: AdminProductBundle:Product:save }
+
+blastar_admin_product_remove:
+    path:     /remove/{id}
+    defaults: { _controller: AdminProductBundle:Product:remove } 

@@ -1,0 +1,45 @@
+Admin\ProductBundle\Entity\Product:
+    type: entity
+    table: product
+    repositoryClass: Admin\ProductBundle\Entity\ProductRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        descriptionShort:
+            type: text
+            column: description_short
+            nullable: true
+        description:
+            type: text
+            nullable: true
+        dateAdded:
+            type: datetime
+            column: date_added
+        dateModified:
+            type: datetime
+            column: date_modified
+    lifecycleCallbacks: {  }
+    oneToMany:
+        categories:
+            targetEntity: Admin\ProductBundle\Entity\ProductCategory
+            mappedBy: product
+            orphanRemoval: true
+            cascade: ["persist", "remove"]
+            joinColumn:
+                name: id
+                referencedColumnName: product_id        
+        prices:
+            targetEntity: Admin\ProductBundle\Entity\ProductPrice
+            mappedBy: product
+            orphanRemoval: true
+            cascade: ["persist", "remove"]
+            joinColumn:
+                name: id
+                referencedColumnName: product_id        

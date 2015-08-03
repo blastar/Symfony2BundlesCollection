@@ -1,4 +1,6 @@
 
+
+
 # backend
 blastar_admin_cms:
     resource: "@BlastarAdminCmsBundle/Resources/config/routing.yml"
@@ -16,6 +18,14 @@ blastar_admin_news:
     resource: "@BlastarAdminNewsBundle/Resources/config/routing.yml"
     prefix:   /admin/news
     
+admin_warehouse:
+    resource: "@AdminWarehouseBundle/Resources/config/routing.yml"
+    prefix:   /warehouse
+
+admin_product:
+    resource: "@AdminProductBundle/Resources/config/routing.yml"
+    prefix:   /product
+    
 blastar_admin_user_homepage:
     path:     /admin
     defaults: { _controller: BlastarAdminUserBundle:Default:index }
@@ -31,9 +41,13 @@ blastar_admin_logout:
     path: /admin/logout
     
 # front
+blastar_front_main_page:
+    resource: "@BlastarFrontUserBundle/Resources/config/routing.yml"
+    prefix:   /profile
+
 blastar_front_user:
     resource: "@BlastarFrontUserBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /profile
 
 blastar_front_cms:
     resource: "@BlastarFrontCmsBundle/Resources/config/routing.yml"

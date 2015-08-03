@@ -1,0 +1,20 @@
+Admin\WarehouseBundle\Entity\Warehouse:
+    type: entity
+    table: warehouse
+    repositoryClass: Admin\WarehouseBundle\Entity\WarehouseRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    indexes:
+        enabled_idx:
+            columns: [ enabled ]                  
+    fields:
+        name:
+            type: string
+            length: 255
+        enabled:
+            type: boolean
+    lifecycleCallbacks: {  }

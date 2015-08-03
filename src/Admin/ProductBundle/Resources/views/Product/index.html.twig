@@ -1,0 +1,22 @@
+<a href="{{ path('blastar_admin_logout') }}">logout</a> | 
+<a href="{{ path('blastar_admin_user_homepage') }}">dashboard</a>
+<hr>
+cms   <a href="{{ path('blastar_admin_product_edit', {'id': 0}) }}">create</a><br/>
+<table>
+	<tr>
+		<td>Name</td>
+		<td>Created</td>
+		<td>Modified</td>
+		<td></td>
+	</tr>
+	{% for item in list %}
+		<tr>
+			<td>{{ item.name }}</td>
+			<td>{{ item.dateAdded|date('Y-m-d H:i:s') }}</td>
+			<td>{{ item.dateModified|date('Y-m-d H:i:s') }}</td>
+			<td><a href="{{ path('blastar_admin_product_edit', {'id': item.id}) }}">edit</a></td>
+			<td><a href="{{ path('blastar_admin_product_remove', {'id': item.id}) }}">remove</a></td>
+		</tr>
+		
+	{% endfor %}
+</table>

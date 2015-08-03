@@ -1,0 +1,111 @@
+<?php
+
+namespace Admin\ProductBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ProductPrice
+ */
+class ProductPrice
+{
+    /**
+     * @var integer
+     */
+    private $id;
+
+    /**
+     * @var integer
+     */
+    private $price;
+
+    /**
+     * @var integer
+     */
+    private $priceNet;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set price
+     *
+     * @param integer $price
+     * @return ProductPrice
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
+
+        return $this;
+    }
+
+    /**
+     * Get price
+     *
+     * @return integer 
+     */
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    /**
+     * Set priceNet
+     *
+     * @param integer $priceNet
+     * @return ProductPrice
+     */
+    public function setPriceNet($priceNet)
+    {
+        $this->priceNet = $priceNet;
+
+        return $this;
+    }
+
+    /**
+     * Get priceNet
+     *
+     * @return integer 
+     */
+    public function getPriceNet()
+    {
+        return $this->priceNet;
+    }
+    /**
+     * @var \Admin\ProductBundle\Entity\Product
+     */
+    private $product;
+
+
+    /**
+     * Set product
+     *
+     * @param \Admin\ProductBundle\Entity\Product $product
+     * @return ProductPrice
+     */
+    public function setProduct(\Admin\ProductBundle\Entity\Product $product = null)
+    {
+        $this->product = $product;
+
+        return $this;
+    }
+
+    /**
+     * Get product
+     *
+     * @return \Admin\ProductBundle\Entity\Product 
+     */
+    public function getProduct()
+    {
+        return $this->product;
+    }
+}

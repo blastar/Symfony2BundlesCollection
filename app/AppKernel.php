@@ -24,6 +24,8 @@ class AppKernel extends Kernel
             new Blastar\FrontCmsBundle\BlastarFrontCmsBundle(),
             new Blastar\AdminNewsBundle\BlastarAdminNewsBundle(),
             new Blastar\FrontNewsBundle\BlastarFrontNewsBundle(),
+            new Admin\ProductBundle\AdminProductBundle(),
+            new Admin\WarehouseBundle\AdminWarehouseBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

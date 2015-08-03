@@ -1,0 +1,33 @@
+<a href="{{ path('blastar_admin_logout') }}">logout</a> | 
+<a href="{{ path('blastar_admin_user_homepage') }}">dashboard</a>
+<hr>
+edit cms <br/>
+{{ form_start(form) }}
+<table>
+	<tr>
+		<td>{{ form_label(form.name) }}</td>
+		<td>{{ form_widget(form.name) }}</td>
+		<td>{{ form_errors(form.name) }}</td>
+	</tr>
+	<tr>
+		<td>{{ form_label(form.content) }}</td>
+		<td>{{ form_widget(form.content) }}</td>
+		<td>{{ form_errors(form.content) }}</td>
+	</tr>
+	<tr>
+		<td>{{ form_label(form.url) }}</td>
+		<td>{{ form_widget(form.url) }}</td>
+		<td>{{ form_errors(form.url) }}</td>
+	</tr>
+	<tr>
+		<td>{{ form_label(form.is_enabled) }}</td>
+		<td>{{ form_widget(form.is_enabled) }}</td>
+		<td>{{ form_errors(form.is_enabled) }}</td>
+</table>
+{{ form_widget(form.save, { 'attr': {'class': 'btn'} }) }}
+{{ form_widget(form._token) }}
+{{ form_end(form, {'render_rest': false}) }}
+<a href="{{ path('blastar_admin_cms_list') }}">back to list</a>
+
+<script src="/tinymce/tinymce.min.js"></script>
+<script>tinymce.init({selector:'textarea'});</script>

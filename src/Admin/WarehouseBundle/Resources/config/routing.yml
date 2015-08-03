@@ -1,0 +1,3 @@
+admin_warehouse_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: AdminWarehouseBundle:Default:index }

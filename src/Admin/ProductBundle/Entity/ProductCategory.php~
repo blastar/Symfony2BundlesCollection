@@ -1,0 +1,55 @@
+<?php
+
+namespace Admin\ProductBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ProductCategory
+ */
+class ProductCategory
+{
+    /**
+     * @var integer
+     */
+    private $id;
+
+    /**
+     * @var string
+     */
+    private $cat;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set cat
+     *
+     * @param string $cat
+     * @return ProductCategory
+     */
+    public function setCat($cat)
+    {
+        $this->cat = $cat;
+
+        return $this;
+    }
+
+    /**
+     * Get cat
+     *
+     * @return string 
+     */
+    public function getCat()
+    {
+        return $this->cat;
+    }
+}

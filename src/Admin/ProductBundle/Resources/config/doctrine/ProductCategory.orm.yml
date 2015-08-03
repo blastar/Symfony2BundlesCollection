@@ -1,0 +1,23 @@
+Admin\ProductBundle\Entity\ProductCategory:
+    type: entity
+    table: product_category
+    repositoryClass: Admin\ProductBundle\Entity\ProductCategoryRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        cat:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }
+    manyToOne:
+        product:
+            targetEntity: Admin\ProductBundle\Entity\Product
+            inversedBy: categories
+            joinColumn:
+                name: product_id
+                referencedColumnName: id  
+                onDelete: "cascade"
